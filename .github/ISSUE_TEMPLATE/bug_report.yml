@@ -1,0 +1,47 @@
+name: 问题反馈
+description: 报告一个可以复现的错误
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 描述你看到的现象，以及你期望的结果
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开 ...
+        2. 点击 ...
+        3. 看到 ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: 部署的提交哈希或日期
+  - type: dropdown
+    id: environment
+    attributes:
+      label: 运行环境
+      options:
+        - 已部署到 Cloudflare
+        - 本地 wrangler dev
+        - 本地 next dev
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器和设备
+      placeholder: iOS 18 Safari / Chrome 140 on Windows
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志或截图
+      description: Worker 日志、浏览器控制台报错等。请先去掉邮箱地址、密钥等隐私信息
+      render: text

@@ -1,0 +1,82 @@
+{
+  "name": "mail",
+  "version": "0.1.0",
+  "private": true,
+  "license": "AGPL-3.0-only",
+  "author": "nebulafang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nebulafang/mail.git"
+  },
+  "scripts": {
+    "build": "node scripts/bundle-migrations.mjs && node scripts/build-id.mjs && opennextjs-cloudflare build",
+    "build:next": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "eslint",
+    "preview": "npm run build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare deploy",
+    "release": "npm run build && npm run deploy",
+    "upload": "npm run build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --strict-vars=false --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "db:generate": "drizzle-kit generate && node scripts/bundle-migrations.mjs",
+    "typecheck": "next typegen && tsc --noEmit",
+    "icons": "node --no-warnings scripts/generate-icons.mts",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@base-ui/react": "^1.8.0",
+    "@opennextjs/cloudflare": "^1.20.8",
+    "@tanstack/react-query": "^5.104.0",
+    "@tanstack/react-virtual": "^3.14.13",
+    "cn": "^0.4.0",
+    "dompurify": "^3.4.16",
+    "drizzle-orm": "^0.45.3",
+    "iron-session": "^9.0.1",
+    "lucide-react": "^1.51.0",
+    "motion": "^13.5.1",
+    "nanoid": "^6.0.1",
+    "next": "16.3.8",
+    "postal-mime": "^4.0.2",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "usehooks-ts": "^3.1.1",
+    "zod": "^4.6.5",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^26",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "drizzle-kit": "^0.31.11",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "16.3.8",
+    "tailwindcss": "^4",
+    "typescript": "^5",
+    "vitest": "^4.1.11",
+    "wrangler": "^4.147.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "MAIL_DOMAINS": {
+        "description": "**必填**。收信域名，多个用英文逗号分隔，比如 `a.com,b.net`，记得把默认的 `example.com` 换掉。域名要托管在 Cloudflare。部署完成后还要给每个域名开启 **Email Routing**，把 Catch-all 设为「发送到 Worker」并选这个 Worker，见 [部署指南](https://github.com/nebulafang/mail/blob/main/docs/deploy.md#第-3-步配置收信email-routing)。"
+      },
+      "SESSION_SECRET": {
+        "description": "可选。用户账号的会话密钥，**至少 32 个字符**的随机字符串，不用记住。生成方法：在电脑浏览器按 F12 打开「控制台」，输入 `crypto.randomUUID() + crypto.randomUUID()` 回车，复制输出的那串字符（不含引号）。留空则关闭注册 / 登录。"
+      },
+      "ADMIN_PASSWORD": {
+        "description": "可选。管理后台的密码，用来停用、删除用户，查看用户邮件和发到未创建地址的 Catch-all 邮件。设置后这些 Catch-all 邮件会入库（7 天后清理）。留空则没有管理后台，以后可以在 Worker 的「设置 → 变量和机密」里补上。"
+      },
+      "CONTACT_EMAIL": {
+        "description": "可选。联系邮箱，显示在「关于本站」「隐私政策」「服务条款」页。**不要**用本站的收信域名，那样的地址任何人都能读信。"
+      },
+      "FORWARD_TO": {
+        "description": "可选。把全站收到的每封邮件额外转发一份到这个外部邮箱。要先在 Cloudflare 的「电子邮件路由 → 目标地址」里添加并验证它；不能是本站的收信域名。留空则不转发。"
+      }
+    }
+  }
+}

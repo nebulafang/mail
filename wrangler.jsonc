@@ -1,0 +1,55 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": "worker.ts",
+	"name": "mail",
+	"minify": true,
+	"compatibility_date": "2026-09-28",
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"images": {
+		"binding": "IMAGES"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "mail"
+		}
+	],
+	"durable_objects": {
+		"bindings": [{ "name": "MAIL_HUB", "class_name": "MailHub" }]
+	},
+	"migrations": [{ "tag": "v1", "new_sqlite_classes": ["MailHub"] }],
+	"ratelimits": [
+		{
+			"name": "CREATE_LIMITER",
+			"namespace_id": "1001",
+			"simple": { "limit": 10, "period": 60 }
+		},
+		{
+			"name": "AUTH_LIMITER",
+			"namespace_id": "1003",
+			"simple": { "limit": 10, "period": 60 }
+		},
+		{
+			"name": "LOOKUP_LIMITER",
+			"namespace_id": "1005",
+			"simple": { "limit": 30, "period": 60 }
+		},
+		{
+			"name": "READ_LIMITER",
+			"namespace_id": "1007",
+			"simple": { "limit": 120, "period": 60 }
+		}
+	],
+	"triggers": {
+		"crons": ["0 * * * *"]
+	},
+	"workers_dev": true,
+	"keep_vars": true
+}

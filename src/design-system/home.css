@@ -1,0 +1,146 @@
+:root {
+  --r-hero: 32px;
+  --r-mail-card: 24px;
+  --card-gap: 10px;
+  --accessory-size: var(--tab-bar-h);
+  --tab-bar-compact-w: calc(var(--tab-bar-h) * 1.3);
+  --hero-ink: #fff;
+  --hero-ink-2: rgb(255 255 255 / 0.78);
+  --hero-chip: rgb(255 255 255 / 0.22);
+  --hero-shadow: 0 22px 44px -18px var(--hero-glow, rgb(0 0 0 / 0.35)), 0 2px 6px -2px rgb(0 0 0 / 0.12);
+  --mail-card-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px -14px rgb(0 0 0 / 0.18);
+}
+
+.dark {
+  --hero-shadow: 0 22px 44px -20px rgb(0 0 0 / 0.8), 0 0 0 0.5px rgb(255 255 255 / 0.08) inset;
+  --mail-card-shadow: 0 0 0 0.5px rgb(255 255 255 / 0.06) inset;
+}
+
+@keyframes title-shrink {
+  to {
+    opacity: 0;
+    transform: translate3d(0, -6px, 0) scale(0.86);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.955);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-drift {
+  0% {
+    transform: translate3d(-8%, -6%, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(6%, 4%, 0) rotate(8deg) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-4%, 8%, 0) rotate(-6deg) scale(1.04);
+  }
+}
+
+@utility hero-surface {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  contain: layout paint;
+  border-radius: var(--r-hero);
+  color: var(--hero-ink);
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in oklab, var(--hero-a) 100%, white 18%), transparent 62%),
+    linear-gradient(140deg, var(--hero-a), var(--hero-b));
+  box-shadow: var(--hero-shadow);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow:
+      inset 0 1px 0.5px -0.5px rgb(255 255 255 / 0.7),
+      inset 0 0 0 0.5px rgb(255 255 255 / 0.18);
+  }
+}
+
+@utility hero-blob {
+  position: absolute;
+  z-index: -1;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 9999px;
+  background: radial-gradient(circle, color-mix(in oklab, var(--hero-b) 40%, white 35%), transparent 68%);
+  opacity: 0.55;
+  will-change: transform;
+  animation: hero-drift 16s ease-in-out infinite alternate;
+}
+
+@utility mail-card {
+  overflow: hidden;
+  contain: layout paint;
+  border-radius: var(--r-mail-card);
+  background: var(--color-surface);
+  --focus-host-shadow: var(--mail-card-shadow);
+  box-shadow: var(--focus-host-shadow), var(--focus-glow, 0 0 #0000);
+}
+
+@layer utilities {
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1400px;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .scroll-title-shrink {
+      transform-origin: 0 100%;
+      animation: title-shrink linear both;
+      animation-timeline: --screen;
+      animation-range: 0px 52px;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    .view-card-in {
+      animation: card-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+  }
+
+  html[data-perf="low"] :is(.view-card-in, .hero-blob) {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+  html[data-perf="low"] .hero-blob {
+    display: none;
+  }
+  html[data-reduce-motion="on"] :is(.scroll-title-shrink, .view-card-in, .hero-blob) {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html:not([data-reduce-motion="off"]) :is(.scroll-title-shrink, .view-card-in, .hero-blob) {
+      animation: none;
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+html[data-perf="low"] {
+  --hero-shadow: 0 2px 6px -2px rgb(0 0 0 / 0.2);
+  --lift-shadow: 0 4px 12px -4px rgb(0 0 0 / 0.3);
+}
+html[data-perf="low"]:not(.dark) {
+  --mail-card-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+}

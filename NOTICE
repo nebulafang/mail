@@ -1,0 +1,94 @@
+临时邮箱 · Cloudflare (mail)
+https://github.com/nebulafang/mail
+
+Copyright (C) 2026 nebulafang
+
+This program is free software: you can redistribute it and/or modify it
+under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation, version 3.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero
+General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program (see the LICENSE file). If not, see
+<https://www.gnu.org/licenses/>.
+
+Unless stated otherwise, this license covers every file in this
+repository, including source code, database migrations and seed data,
+documentation, blog articles, images and icons.
+
+
+================================================================
+中文说明（仅为帮助理解，不具法律效力；以 LICENSE 中的英文原文为准）
+================================================================
+
+本项目以 GNU Affero 通用公共许可证第 3 版（AGPL-3.0）发布，版权归
+nebulafang 所有。除非另有说明，本仓库中的所有文件（源代码、数据库迁移
+和示例数据、文档、博客文章、图片与图标）都适用本协议。
+
+你可以：
+  - 免费使用、复制、修改本项目，包括用于商业目的；
+  - 部署自己的站点，或者把修改后的版本再分发给别人。
+
+但你必须：
+  - 保留所有版权声明、本 NOTICE 文件和 LICENSE 文件；
+  - 在修改过的文件中注明修改内容和修改日期；
+  - 以同样的 AGPL-3.0 协议发布你的修改版本或衍生作品，不能改成闭源或
+    其他更宽松的协议；
+  - 如果你把修改后的版本部署成网站、让其他人通过网络使用（AGPL 第 13
+    条），必须向这些用户免费提供修改后的完整源代码。最简单的做法是：
+    把代码公开在 GitHub 等平台，并把网站「关于本站」页里的「本站源代码」
+    链接（src/lib/seo-copy.ts 中的 site.sourceCode）改成你自己的仓库地址。
+
+未修改代码、直接部署自己站点的，保留页面上指向本仓库的源代码链接即可。
+
+本项目按「现状」提供，不附带任何担保；作者不对使用本项目造成的任何
+损失承担责任。
+
+作为版权所有者，nebulafang 可以另行授予其他许可。如需在不满足上述条件
+的情况下使用本项目（例如闭源商用），请先取得作者的书面许可。
+
+
+================================================================
+Third-party notices / 第三方声明
+================================================================
+
+This project references and is partly based on cloudflare_temp_email
+(https://github.com/dreamhunter2333/cloudflare_temp_email), which is
+licensed under the MIT License reproduced below. Portions derived from
+that project remain available under the MIT License; the combined work
+is distributed under the AGPL-3.0.
+
+本项目参考并部分基于 cloudflare_temp_email，其协议（MIT）原文如下。
+来自该项目的部分仍可按 MIT 协议使用，整个项目按 AGPL-3.0 发布。
+
+----------------------------------------------------------------
+MIT License
+
+Copyright (c) 2023 Dream Hunter
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+----------------------------------------------------------------
+
+Third-party npm dependencies are distributed under their own licenses
+(MIT, ISC, Apache-2.0, MPL-2.0 OR Apache-2.0, MIT-0), all of which are
+compatible with the AGPL-3.0. See each package in node_modules for details.

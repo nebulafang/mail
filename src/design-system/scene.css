@@ -1,0 +1,300 @@
+[data-scene="sakura"] {
+  --scene-sky-1: #fbe4ee;
+  --scene-sky-2: #f3e6fa;
+  --scene-sky-3: #fdf0f5;
+  --scene-orb: rgb(255 255 255 / 0.7);
+  --scene-orb-glow: rgb(255 255 255 / 0.8);
+  --scene-cloud: #fff;
+  --scene-cloud-shade: #f4dbe9;
+  --scene-cloud-alpha: 0.85;
+  --scene-far: #ecd8f1;
+  --scene-near: #f6d2e2;
+  --scene-accent: #ee8ea6;
+  --scene-branch: #a07484;
+  --scene-blossom: #ffc4d9;
+  --scene-blossom-2: #ffe0ec;
+  --scene-blossom-core: #f07aa3;
+  --scene-particle: #ffadc8;
+  --scene-particle-2: #ffe0ea;
+  --scene-edge-top: rgb(251 228 238 / 0.85);
+  --scene-edge-bottom: rgb(246 210 226 / 0.75);
+  --scene-veil: rgb(255 255 255 / 0.08);
+}
+.dark [data-scene="sakura"] {
+  --scene-sky-1: #1b1433;
+  --scene-sky-2: #2a1a42;
+  --scene-sky-3: #150f26;
+  --scene-orb: #fff2e4;
+  --scene-orb-glow: rgb(255 214 232 / 0.32);
+  --scene-cloud: #7a68ad;
+  --scene-cloud-shade: #4c3f78;
+  --scene-cloud-alpha: 0.16;
+  --scene-far: #2b2046;
+  --scene-near: #1e1634;
+  --scene-accent: #6a3350;
+  --scene-branch: #4c3149;
+  --scene-blossom: #eba0bf;
+  --scene-blossom-2: #ffd0e1;
+  --scene-blossom-core: #c4577f;
+  --scene-particle: #f0a6c3;
+  --scene-particle-2: #ffd3e3;
+  --scene-edge-top: rgb(27 20 51 / 0.85);
+  --scene-edge-bottom: rgb(30 22 52 / 0.8);
+  --scene-veil: rgb(0 0 0 / 0.1);
+}
+
+[data-scene="starry"] {
+  --scene-sky-1: #e9e3ff;
+  --scene-sky-2: #f4e1f3;
+  --scene-sky-3: #ffe6d6;
+  --scene-orb: rgb(255 255 255 / 0.9);
+  --scene-orb-glow: rgb(255 246 230 / 0.7);
+  --scene-far: #d8caef;
+  --scene-near: #c2b0e4;
+  --scene-accent: rgb(255 255 255 / 0.5);
+  --scene-star-alpha: 0.8;
+  --scene-band: rgb(255 255 255 / 0.35);
+  --scene-horizon: rgb(255 214 190 / 0.7);
+  --scene-particle: #b9a2f2;
+  --scene-edge-top: rgb(233 227 255 / 0.85);
+  --scene-edge-bottom: rgb(194 176 228 / 0.75);
+  --scene-veil: rgb(255 255 255 / 0.08);
+}
+.dark [data-scene="starry"] {
+  --scene-sky-1: #070b26;
+  --scene-sky-2: #151a4d;
+  --scene-sky-3: #36286a;
+  --scene-orb: #fff6dc;
+  --scene-orb-glow: rgb(200 190 255 / 0.25);
+  --scene-far: #1a1640;
+  --scene-near: #0d0b24;
+  --scene-accent: rgb(255 214 140 / 0.85);
+  --scene-star-alpha: 1;
+  --scene-band: rgb(170 160 255 / 0.18);
+  --scene-horizon: rgb(160 110 220 / 0.45);
+  --scene-shoot: #fff;
+  --scene-particle: #fff;
+  --scene-edge-top: rgb(7 11 38 / 0.85);
+  --scene-edge-bottom: rgb(13 11 36 / 0.8);
+  --scene-veil: rgb(0 0 0 / 0.08);
+}
+
+[data-scene="summer"] {
+  --scene-sky-1: #8fc9ff;
+  --scene-sky-2: #c5e6ff;
+  --scene-sky-3: #eef8ff;
+  --scene-orb: rgb(255 255 245 / 0.95);
+  --scene-orb-glow: rgb(255 250 220 / 0.75);
+  --scene-cloud: #fff;
+  --scene-cloud-shade: #d6e7f7;
+  --scene-cloud-alpha: 1;
+  --scene-far: #d9ecfa;
+  --scene-flare: rgb(255 255 255 / 0.22);
+  --scene-particle: rgb(255 255 255 / 0.9);
+  --scene-particle-glow: rgb(255 255 255 / 0.8);
+  --scene-edge-top: rgb(143 201 255 / 0.85);
+  --scene-edge-bottom: rgb(255 255 255 / 0.7);
+  --scene-veil: rgb(255 255 255 / 0.06);
+}
+.dark [data-scene="summer"] {
+  --scene-sky-1: #0a1830;
+  --scene-sky-2: #132c52;
+  --scene-sky-3: #1f3d66;
+  --scene-orb: #fff4d0;
+  --scene-orb-glow: rgb(255 240 200 / 0.22);
+  --scene-cloud: #1d3354;
+  --scene-cloud-shade: #142540;
+  --scene-cloud-alpha: 1;
+  --scene-far: #182c4a;
+  --scene-star-alpha: 0.6;
+  --scene-flare: transparent;
+  --scene-particle: #e6ff8f;
+  --scene-particle-glow: rgb(214 255 110 / 0.7);
+  --scene-edge-top: rgb(10 24 48 / 0.85);
+  --scene-edge-bottom: rgb(20 37 64 / 0.8);
+  --scene-veil: rgb(0 0 0 / 0.08);
+}
+
+[data-scene]:not([data-scene="none"]) {
+  --scroll-edge: var(--scene-edge-bottom);
+  --scene-halo: 0 0 1px rgb(255 255 255 / 0.7), 0 0 10px rgb(255 255 255 / 0.85);
+  --scene-label-2: rgb(60 60 67 / 0.85);
+  --scene-veil-strong: rgb(255 255 255 / 0.55);
+}
+.dark [data-scene]:not([data-scene="none"]) {
+  --scene-halo: 0 0 1px rgb(0 0 0 / 0.6), 0 0 10px rgb(0 0 0 / 0.75);
+  --scene-label-2: rgb(235 235 245 / 0.85);
+  --scene-veil-strong: rgb(0 0 0 / 0.55);
+}
+
+@utility scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  container-type: size;
+}
+
+@utility scene-sky {
+  background: linear-gradient(to bottom, var(--scene-sky-1), var(--scene-sky-2) 55%, var(--scene-sky-3));
+}
+
+@utility scene-veil {
+  background: var(--scene-veil);
+}
+
+@utility on-scene {
+  text-shadow: var(--scene-halo, none);
+}
+
+@utility scene-sparkle {
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+
+@utility scene-drop {
+  position: absolute;
+  top: 0;
+  animation: scene-fall var(--dur) linear var(--delay) infinite;
+  will-change: translate;
+}
+
+@utility scene-petal {
+  width: var(--size);
+  height: calc(var(--size) * 0.8);
+  border-radius: 150% 0 150% 0;
+  background: linear-gradient(135deg, var(--scene-particle-2), var(--scene-particle));
+  animation: scene-sway var(--sway-dur) ease-in-out var(--delay) infinite;
+  will-change: transform;
+}
+
+@utility scene-twinkle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: var(--scene-particle);
+  animation: scene-twinkle var(--dur) ease-in-out var(--delay) infinite alternate;
+}
+
+@utility scene-mote {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: var(--scene-particle);
+  box-shadow: 0 0 calc(var(--size) * 2) calc(var(--size) * 0.5) var(--scene-particle-glow, transparent);
+  animation:
+    scene-float var(--dur) ease-in-out var(--delay) infinite alternate,
+    scene-twinkle calc(var(--dur) / 3) ease-in-out var(--delay) infinite alternate;
+  will-change: translate, opacity;
+}
+
+@utility scene-shoot {
+  position: absolute;
+  width: 140px;
+  height: 1.5px;
+  border-radius: 999px;
+  background: linear-gradient(to right, transparent, var(--scene-shoot, transparent));
+  rotate: 150deg;
+  opacity: 0;
+  animation: scene-shoot var(--dur) ease-in var(--delay) infinite;
+}
+
+@keyframes scene-fall {
+  from {
+    translate: 0 -6cqh;
+  }
+  to {
+    translate: 0 104cqh;
+  }
+}
+
+@keyframes scene-sway {
+  0% {
+    transform: translateX(0) rotate(0deg) rotateX(0deg);
+  }
+  25% {
+    transform: translateX(var(--sway)) rotate(90deg) rotateX(80deg);
+  }
+  50% {
+    transform: translateX(0) rotate(180deg) rotateX(180deg);
+  }
+  75% {
+    transform: translateX(calc(-1 * var(--sway))) rotate(270deg) rotateX(260deg);
+  }
+  100% {
+    transform: translateX(0) rotate(360deg) rotateX(360deg);
+  }
+}
+
+@keyframes scene-twinkle {
+  from {
+    opacity: 0.2;
+    scale: 0.6;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes scene-float {
+  from {
+    translate: 0 0;
+  }
+  50% {
+    translate: var(--dx) calc(var(--dy) * 0.5);
+  }
+  to {
+    translate: calc(var(--dx) * -0.6) var(--dy);
+  }
+}
+
+@keyframes scene-shoot {
+  0%,
+  88% {
+    opacity: 0;
+    translate: 0 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    translate: -260px 150px;
+  }
+}
+
+@layer utilities {
+  [data-scene]:not([data-scene="none"]) .on-scene {
+    --label-2: var(--scene-label-2);
+  }
+
+  html[data-reduce-motion="on"] .scene-particles *,
+  [data-transitioning] .scene-particles *,
+  [inert] .scene-particles * {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html:not([data-reduce-motion="off"]) .scene-particles * {
+      animation-play-state: paused;
+    }
+  }
+  html[data-perf="low"] :is(.scene-particles, .scene-stars) {
+    display: none;
+  }
+
+  html[data-reduce-transparency="on"] .scene-veil,
+  html[data-contrast="more"] .scene-veil {
+    background: var(--scene-veil-strong);
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    html:not([data-reduce-transparency="off"]) .scene-veil {
+      background: var(--scene-veil-strong);
+    }
+  }
+  @media (prefers-contrast: more) {
+    html:not([data-contrast="standard"]) .scene-veil {
+      background: var(--scene-veil-strong);
+    }
+  }
+}

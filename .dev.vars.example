@@ -1,0 +1,16 @@
+# 收信域名，多个用逗号分隔；生产环境在 Cloudflare 后台的「变量和机密」里设置
+MAIL_DOMAINS=example.com
+
+# 用户账号会话密钥（至少 32 个字符），不设置则关闭注册 / 登录
+SESSION_SECRET=
+
+ADMIN_PASSWORD=
+
+# 可选：联系邮箱，显示在「关于本站」「隐私政策」「服务条款」页
+CONTACT_EMAIL=
+
+# 可选：把全站收到的邮件转发一份到这个地址，需先在 Email Routing 的目标地址里验证它；留空则不转发
+FORWARD_TO=
+
+# 仅本地开发：复制成 .dev.vars 后取消下一行的注释。不要在生产环境设置它
+# NEXTJS_ENV=development
